@@ -2,17 +2,20 @@ function helpMe() {
     console.log("Started helpMe")
     query=document.getElementById("message").value;
     console.log(query)
-    key="https://westus.api.cognitive.microsoft.com/luis/v2.0/apps/ff9d6f82-6c16-4a51-91ce-da997da73754?subscription-key=bda2aef0e0b84729bbc03dfecb2b4b45&verbose=true&timezoneOffset=0&q= "
-    window.location.replace(key+query);
+    key="https://westus.api.cognitive.microsoft.com/luis/v2.0/apps/ff9d6f82-6c16-4a51-91ce-da997da73754?subscription-key=bda2aef0e0b84729bbc03dfecb2b4b45&verbose=true&timezoneOffset=0&q="
+    $.getJSON(query+key, function(data) {
+        console.log("entered request")
+        getResult(data)
+        console.log(data)}
+    )
+};
 
 
 
-}
-
-function getResult()
+function getResult(data)
 
 {
-    var _query = document.querySelector('pre').innerHTML;
+    var _query = data;
     console.log(_query);
     var intents = JSON.parse(_query).intents;
     var topIntent=intents[0].intent;
