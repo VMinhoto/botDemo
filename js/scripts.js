@@ -19,9 +19,12 @@ function getResult()
     var topScore=intents[0].score; 
 
     if (topScore>0.8)
-     window.location.replace("invoice.html");
+     {
+         window.location.replace("https://vminhoto.github.io/botDemo/invoice.html");
+     }
      else
-     window.location.replace("noresult.html");
+   {  window.location.replace("https://vminhoto.github.io/botDemo/noresult.html");
 
+    }
 
 }
