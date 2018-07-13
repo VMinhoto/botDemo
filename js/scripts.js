@@ -20,11 +20,17 @@ function getResult(data)
     console.log(_query);
     var intents = _query.intents;
     var topIntent=intents[0].intent;
-    var topScore=intents[0].score; 
+    var topScore=intents[0].score;
 
     if (topScore>0.8&&topIntent=='createInvoice')
      {
-         window.location.replace("https://vminhoto.github.io/botDemo/invoice.html");
+         
+         if (_query.entities[0]!=undefined){
+            window.location.replace("https://vminhoto.github.io/botDemo/invoice.html");
+         }
+         else{
+             window.location.replace("https://vminhoto.github.io/botDemo/invoice_no_entity.html");
+         }
      }
      else
    {  window.location.replace("https://vminhoto.github.io/botDemo/noresult.html");
